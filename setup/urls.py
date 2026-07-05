@@ -15,24 +15,52 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
 #Function Based view
 # from genres.views import genre_create_list_view, genre_detail_view
 #Class based view
-from genres.views import GenreCreateListView, GenreRetrieveUpdadeDestroy
 
+
+'''
+   # criando arquivos de URL's dentro de cada APP
+
+from genres.views import GenreCreateListView, GenreRetrieveUpdadeDestroy
+from actors.views import ActorCreateListView, ActorRetrieveUpdadeDestroy
+from movies.views import MovieCreateListView, MovieRetrieveUpdadeDestroy
+from reviews.views import ReviewCreateListView, ReviewRetrieveUpdadeDestroy
+'''
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    path('api/v1/', include ('genres.urls')),
+    path('api/v1/', include ('actors.urls')),
+    path('api/v1/', include ('movies.urls')),
+    path('api/v1/', include ('reviews.urls')),
+]
+
+
+'''
+   # criando arquivos de URL's dentro de cada APP
+
     #Function based view
     #path('genres/', genre_create_list_view, name='genre-create-list'),
     #Class based view
+
     path('genres/', GenreCreateListView.as_view(), name='genre-create-list'),
+    path('actors/', ActorCreateListView.as_view(), name='actor-create-list'),
+    path('movies/', MovieCreateListView.as_view(), name='movie-create-list'),
+    path('reviews/', ReviewCreateListView.as_view(), name='review-create-list'),
 
     #Function based view
     #path('genres/<int:pk>/', genre_detail_view, name='genre-detail-view'),
     #Class based view
+    
     path('genres/<int:pk>/', GenreRetrieveUpdadeDestroy.as_view(), name='genre-detail-view'),
-]   
+    path('actors/<int:pk>/', ActorRetrieveUpdadeDestroy.as_view(), name='actor-detail-view'),
+    path('movies/<int:pk>/', MovieRetrieveUpdadeDestroy.as_view(), name='movie-detail-view'),
+    path('reviews/<int:pk>/', ReviewRetrieveUpdadeDestroy.as_view(), name='review-detail-view'),
+'''
+
