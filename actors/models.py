@@ -4,7 +4,10 @@ from django.db import models
 
 NATIONALITY_CHOICES =(
     ('USA', 'Estados Unidos'),
-    ('BR', 'Brasil')
+    ('BR', 'Brasil'),
+    ('ARG', 'Argentina'),
+    ('AUS', 'Autrália'),
+    ('BEL', 'Bélgica')
 )
 
 
