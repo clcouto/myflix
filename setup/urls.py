@@ -20,6 +20,7 @@ from django.urls import path
 # from genres.views import genre_create_list_view, genre_detail_view
 #Class based view
 from genres.views import GenreCreateListView, GenreRetrieveUpdadeDestroy
+from actors.views import ActorCreateListView, ActorRetrieveUpdadeDestroy
 
 
 
@@ -30,9 +31,11 @@ urlpatterns = [
     #path('genres/', genre_create_list_view, name='genre-create-list'),
     #Class based view
     path('genres/', GenreCreateListView.as_view(), name='genre-create-list'),
+    path('actors/', ActorCreateListView.as_view(), name='actor-create-list'),
 
     #Function based view
     #path('genres/<int:pk>/', genre_detail_view, name='genre-detail-view'),
     #Class based view
     path('genres/<int:pk>/', GenreRetrieveUpdadeDestroy.as_view(), name='genre-detail-view'),
+    path('actors/<int:pk>/', ActorRetrieveUpdadeDestroy.as_view(), name='actor-detail-view'),
 ]   
